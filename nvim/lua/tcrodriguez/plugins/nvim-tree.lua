@@ -6,6 +6,18 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
+		require("nvim-web-devicons").setup({
+			strict = true,
+			override_by_filename = {
+				["tsconfig.json"] = {
+					icon = "",
+					color = "#2F9CBE",
+				},
+				["babel.config.js"] = {
+					icon = "",
+				},
+			},
+		})
 		require("nvim-tree").setup({
 			renderer = {
 				icons = {

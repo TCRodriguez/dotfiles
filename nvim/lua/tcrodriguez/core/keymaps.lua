@@ -20,5 +20,9 @@ vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true, silent
 -- vim.api.nvim_set_keymap("n", "<leader>b]", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>b[", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<C-w>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-w>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<C-", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<C-e>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-y>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-,>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })

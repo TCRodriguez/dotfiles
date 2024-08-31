@@ -28,8 +28,44 @@ return {
 		vim.keymap.set("n", "<leader>hl", function()
 			toggle_telescope(harpoon:list())
 		end, { desc = "Open harpoon window" })
-		vim.keymap.set("n", "<leader>hm", function()
+
+		vim.keymap.set("n", "<leader>ha", function()
 			toggle_telescope(harpoon:list():append())
 		end, { desc = "Add file to harpoon list" })
+
+		vim.keymap.set("n", "<C-w>", function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end)
+
+		-- vim.keymap.set("n", "<C-e-p>", function()
+		-- 	harpoon:list():prev()
+		-- end)
+		--
+		-- vim.keymap.set("n", "<C-e-n>", function()
+		-- 	harpoon:list():next()
+		-- end)
+		vim.keymap.set("n", "<C-e>", function()
+			harpoon:list():prev()
+		end)
+
+		vim.keymap.set("n", "<C-y>", function()
+			harpoon:list():next()
+		end)
+
+		vim.keymap.set("n", "<C-1>", function()
+			harpoon:list():select(1)
+		end)
+
+		vim.keymap.set("n", "<C-2>", function()
+			harpoon:list():select(2)
+		end)
+
+		vim.keymap.set("n", "<C-3>", function()
+			harpoon:list():select(3)
+		end)
+
+		vim.keymap.set("n", "<C-4>", function()
+			harpoon:list():select(4)
+		end)
 	end,
 }
