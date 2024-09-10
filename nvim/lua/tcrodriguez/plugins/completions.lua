@@ -13,7 +13,9 @@ return {
 		"hrsh7th/nvim-cmp",
 		config = function()
 			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_lua").load({ paths = "./snippets.lua" })
 
 			cmp.setup({
 				snippet = {
@@ -46,6 +48,13 @@ return {
 					--  Generally you don't need this, because nvim-cmp will display
 					--  completions whenever it has completion options available.
 					["<C-Space>"] = cmp.mapping.complete({}),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.jump(1)
+						else
+							fallback()
+						end
+					end, { "s", "i" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
