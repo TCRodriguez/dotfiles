@@ -48,7 +48,7 @@ return {
 					--  Generally you don't need this, because nvim-cmp will display
 					--  completions whenever it has completion options available.
 					["<C-Space>"] = cmp.mapping.complete({}),
-					["<Tab>"] = cmp.mapping(function(fallback)
+					["<M-Tab>"] = cmp.mapping(function(fallback)
 						if luasnip.expand_or_locally_jumpable() then
 							luasnip.jump(1)
 						else

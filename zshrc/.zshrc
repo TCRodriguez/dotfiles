@@ -122,7 +122,7 @@ alias cch="git show --oneline | head -1 | awk '{ print $1 }' | pbcopy"
 alias gpo="git push origin"
 alias gpom="git push origin main"
 alias gpod="git push origin develop"
-alias lg="lazygit"
+alias lzg="lazygit"
 
 #----------------------
 # php artisan shortcuts
@@ -153,9 +153,16 @@ alias ns="npm start"
 alias nr="npm run"
 alias nrd="npm run dev"
 alias nrw="npm run watch"
+alias nrs="npm run start"
 
 alias nrdb="npm run dbTerminal"
 
+
+#----------------------
+# Misc. 
+#----------------------
+alias burn-saturn-game="cdrdao write --swap --speed 8 "
+alias cmdpth="printf '%q\n'"
 
 
 
@@ -177,3 +184,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
+
+# Added by Windsurf
+export PATH="/Users/tonatiuhrodriguez/.codeium/windsurf/bin:$PATH"
