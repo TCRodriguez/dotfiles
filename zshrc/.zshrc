@@ -163,6 +163,20 @@ alias nrdb="npm run dbTerminal"
 #----------------------
 alias burn-saturn-game="cdrdao write --swap --speed 8 "
 alias cmdpth="printf '%q\n'"
+alias fabric="fabric-ai"
+
+# Fabric Pattern Chainer
+fabric-chain() {
+    local project_dir="$HOME/Developer/DreamsOS/library/fabric-pattern-chainer"
+    source "$project_dir/venv/bin/activate"
+
+    # If first arg starts with - or is empty, assume "main" command
+    if [[ -z "$1" ]] || [[ "$1" == -* ]]; then
+        python "$project_dir/bin/fabric-chain" main "$@"
+    else
+        python "$project_dir/bin/fabric-chain" "$@"
+    fi
+}
 
 
 
@@ -187,3 +201,46 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # Added by Windsurf
 export PATH="/Users/tonatiuhrodriguez/.codeium/windsurf/bin:$PATH"
+
+# For fabric
+## Golang environment variables
+export GOROOT=$(brew --prefix go)/libexec
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
+
+# Define the base directory for Obsidian notes
+obsidian_base="/Users/tonatiuhrodriguez/Desktop/Projects/Second\ Brain"
+
+# Loop through all files in the ~/.config/fabric/patterns directory
+for pattern_file in ~/.config/fabric/patterns/*; do
+    # Get the base name of the file (i.e., remove the directory path)
+    pattern_name=$(basename "$pattern_file")
+
+    # Remove any existing alias with the same name
+    unalias "$pattern_name" 2>/dev/null
+
+    # Define a function dynamically for each pattern
+    eval "
+    $pattern_name() {
+        local title=\$1
+        local date_stamp=\$(date +'%Y-%m-%d')
+        local output_path=\"\$obsidian_base/\${date_stamp}-\${title}.md\"
+
+        # Check if a title was provided
+        if [ -n \"\$title\" ]; then
+            # If a title is provided, use the output path
+            fabric --pattern \"$pattern_name\" -o \"\$output_path\"
+        else
+            # If no title is provided, use --stream
+            fabric --pattern \"$pattern_name\" --stream
+        fi
+    }
+    "
+done
+
+# bun completions
+[ -s "/Users/tonatiuhrodriguez/.bun/_bun" ] && source "/Users/tonatiuhrodriguez/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
