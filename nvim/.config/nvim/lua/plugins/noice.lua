@@ -6,19 +6,18 @@ return {
     -- add any options here
     presets = {
       bottom_search = false,
-      command_palette = {
-        views = {
-          cmdline_popup = {
-            position = {
-              row = "50%",
-              col = "50%",
-            },
-            size = {
-              min_width = 60,
-              width = "auto",
-              height = "auto",
-            },
-          },
+      command_palette = true,
+    },
+    views = {
+      cmdline_popup = {
+        position = {
+          row = "50%",
+          col = "50%",
+        },
+        size = {
+          min_width = 60,
+          width = "auto",
+          height = "auto",
         },
       },
     },

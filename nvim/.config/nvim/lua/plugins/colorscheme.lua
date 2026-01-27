@@ -6,7 +6,6 @@ return {
       transparent = true,
       color = {},
     })
-    require("dark_flat").load()
     vim.cmd("colorscheme dark_flat")
   end,
 }
