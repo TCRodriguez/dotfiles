@@ -1,0 +1,5 @@
+# Local-only files (machine-specific config, secrets) — never track these.
+*.local
+*.secrets
+.env
+.env.*

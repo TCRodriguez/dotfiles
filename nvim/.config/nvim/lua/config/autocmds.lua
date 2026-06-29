@@ -6,3 +6,12 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Disable virtual text for diagnostics (hides inline error messages)
+vim.diagnostic.config({
+  virtual_text = false,
+  -- You can still see diagnostics with:
+  -- - Signs in the gutter (left column)
+  -- - <leader>cd to open diagnostics window
+  -- - Hover with K over the line
+})

@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -157,6 +157,14 @@ alias nrs="npm run start"
 
 alias nrdb="npm run dbTerminal"
 
+#----------------------
+# Dos Worktree
+#----------------------
+alias dosw="dos-worktree"
+alias doswl="dos-worktree list"
+alias doswh="dos-worktree --help"
+alias doswtmxc="dos-worktree tmux-current"
+
 
 #----------------------
 # Misc. 
@@ -244,3 +252,16 @@ done
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/tonatiuhrodriguez/.antigravity/antigravity/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+nvm use --silent default >/dev/null 2>&1
+
+# Local secrets (X API, Apple signing creds, etc.) — kept out of the repo.
+[[ -f "$HOME/.zshrc.secrets.local" ]] && source "$HOME/.zshrc.secrets.local"
+
+
+# DreamsOS worktree helpers
+source /Users/tonatiuhrodriguez/Developer/DreamsOS/agency/scripts/dos_worktree_shell.zsh
